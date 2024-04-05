@@ -9,7 +9,9 @@ repositories {
     mavenCentral()
 }
 
-dependencies {}
+dependencies {
+    implementation(libs.clikt)
+}
 
 testing {
     suites {

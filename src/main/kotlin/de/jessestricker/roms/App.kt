@@ -1,12 +1,13 @@
 package de.jessestricker.roms
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
+import com.github.ajalt.clikt.core.CliktCommand
+
+class App : CliktCommand() {
+    val greeting: String get() = "Hello World!"
+
+    override fun run() {
+        println(greeting)
+    }
 }
 
-fun main() {
-    println(App().greeting)
-}
+fun main(args: Array<String>) = App().main(args)
