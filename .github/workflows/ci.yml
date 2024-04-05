@@ -3,6 +3,9 @@ name: CI
 on:
   push:
 
+env:
+  GRADLE_OPTS: -Dorg.gradle.daemon=false
+
 jobs:
   lint:
     name: Lint
