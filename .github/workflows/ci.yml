@@ -3,9 +3,6 @@ name: CI
 on:
   push:
 
-env:
-  GRADLE_OPTS: -Dorg.gradle.daemon=false
-
 jobs:
   lint:
     name: Lint
@@ -34,8 +31,9 @@ jobs:
         uses: actions/checkout@v4.1.1
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3.2.0
+      - run: cat ~/.gradle/gradle.properties
       - name: Compile
-        run: ./gradlew classes testClasses
+        run: ./gradlew classes testClasses --no-daemon
 
   test:
     name: Test
