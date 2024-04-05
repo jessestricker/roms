@@ -3,7 +3,7 @@
 import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
-    alias(libs.plugins.jvm)
+    alias(libs.plugins.kotlin)
     application
 
     alias(libs.plugins.detekt)
