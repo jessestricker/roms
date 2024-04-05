@@ -4,6 +4,19 @@ on:
   push:
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3.2.0
+      - name: Run detekt analysis
+        run: ./gradlew detekt
+      - name: Add job summary
+        run: cp ./build/reports/detekt/detekt.md $GITHUB_STEP_SUMMARY
+
   compile:
     name: Compile
     runs-on: ubuntu-latest

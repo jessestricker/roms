@@ -3,6 +3,7 @@ kotlin = "1.9.23"
 
 [plugins]
 jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.6" }
 
 [libraries]
 clikt = { module = "com.github.ajalt.clikt:clikt", version = "4.3.0" }

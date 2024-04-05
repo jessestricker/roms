@@ -3,6 +3,8 @@
 plugins {
     alias(libs.plugins.jvm)
     application
+
+    alias(libs.plugins.detekt)
 }
 
 repositories {
