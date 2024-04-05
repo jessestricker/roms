@@ -1,5 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
+import io.gitlab.arturbosch.detekt.Detekt
+
 plugins {
     alias(libs.plugins.jvm)
     application
@@ -29,4 +31,11 @@ kotlin {
 
 application {
     mainClass = "de.jessestricker.roms.AppKt"
+}
+
+detekt {
+    basePath = rootProject.projectDir.absolutePath
+}
+tasks.withType<Detekt> {
+    reports.sarif.required = true
 }

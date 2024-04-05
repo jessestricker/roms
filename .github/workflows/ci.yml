@@ -14,8 +14,11 @@ jobs:
         uses: gradle/actions/setup-gradle@v3.2.0
       - name: Run detekt analysis
         run: ./gradlew detekt
-      - name: Add job summary
-        run: cp ./build/reports/detekt/detekt.md $GITHUB_STEP_SUMMARY
+      - name: Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v2.17.0
+        if: ${{ !cancelled() }}
+        with:
+          sarif_file: ./build/reports/detekt/detekt.sarif
 
   compile:
     name: Compile
