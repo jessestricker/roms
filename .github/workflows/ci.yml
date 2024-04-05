@@ -21,6 +21,7 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           sarif_file: ./build/reports/detekt/detekt.sarif
+          category: detekt
 
   compile:
     name: Compile
