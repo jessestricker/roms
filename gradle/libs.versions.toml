@@ -5,4 +5,4 @@ kotlin = "1.9.23"
 jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
 [libraries]
-clikt = { module = "com.github.ajalt.clikt:clikt", version = "4.2.1" }
+clikt = { module = "com.github.ajalt.clikt:clikt", version = "4.3.0" }
