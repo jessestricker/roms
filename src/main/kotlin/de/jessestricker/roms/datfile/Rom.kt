@@ -10,5 +10,5 @@ data class Rom(
     val size: Long,
 
     @field:JacksonXmlProperty(isAttribute = true)
-    val sha1: String,
+    val sha1: Sha1Digest,
 )
