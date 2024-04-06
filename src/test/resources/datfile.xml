@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<datafile>
+    <header>
+        <name>The name</name>
+        <version>The version</version>
+        <ignored>Ignored</ignored>
+    </header>
+    <game name="The game 1" ignored="Ignored">
+        <rom name="The rom 1.iso" size="12345" sha1="75D5C116AB1638B1387488B21D13CE2F150C4454" ignored="Ignored"/>
+        <ignored>Ignored</ignored>
+    </game>
+    <game name="The game 2" ignored="Ignored">
+        <rom name="The rom 2.iso" size="54321" sha1="F1FD3D0ADECAFC52C94B047021B1874B75D050FF" ignored="Ignored"/>
+        <rom name="The rom 3.iso" size="21543" sha1="659AFF3D1BC508E4ABBA424BB57463B51AA8DA93" ignored="Ignored"/>
+        <ignored>Ignored</ignored>
+    </game>
+</datafile>

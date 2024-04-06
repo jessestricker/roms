@@ -17,11 +17,11 @@ import kotlin.io.path.div
 @ExtendWith(MockWebServerExtension::class)
 class RedumpDatfileFetcherTest {
     @Test
-    fun `fetch Nintendo Wii datfile from redump`(@TempDir tempDir: Path, server: MockWebServer) {
+    fun `fetch Nintendo Wii datfile`(@TempDir tempDir: Path, server: MockWebServer) {
         val expectedDatfileBuffer = Buffer()
-        FileSystem.SYSTEM.read("src/test/resources/redump_wii.dat".toPath()) { readAll(expectedDatfileBuffer) }
+        FileSystem.SYSTEM.read("src/test/resources/datfile.xml".toPath()) { readAll(expectedDatfileBuffer) }
         val zippedDatfileBuffer = Buffer()
-        FileSystem.SYSTEM.read("src/test/resources/redump_wii.dat.zip".toPath()) { readAll(zippedDatfileBuffer) }
+        FileSystem.SYSTEM.read("src/test/resources/datfile.xml.zip".toPath()) { readAll(zippedDatfileBuffer) }
         server.enqueue(MockResponse.Builder().body(zippedDatfileBuffer).build())
 
         val datfilePath = tempDir / "wii.xml"
