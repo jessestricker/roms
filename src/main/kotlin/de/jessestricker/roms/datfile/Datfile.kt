@@ -1,4 +1,4 @@
-package de.jessestricker.roms
+package de.jessestricker.roms.datfile
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
@@ -27,27 +27,3 @@ data class Datfile(
         }
     }
 }
-
-data class Header(
-    val name: String,
-    val version: String,
-)
-
-data class Game(
-    @field:JacksonXmlProperty(isAttribute = true)
-    val name: String,
-
-    @field:JacksonXmlProperty(localName = "rom")
-    val roms: Set<Rom>,
-)
-
-data class Rom(
-    @field:JacksonXmlProperty(isAttribute = true)
-    val name: String,
-
-    @field:JacksonXmlProperty(isAttribute = true)
-    val size: Long,
-
-    @field:JacksonXmlProperty(isAttribute = true)
-    val sha1: String,
-)

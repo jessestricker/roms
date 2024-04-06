@@ -1,5 +1,9 @@
 package de.jessestricker.roms
 
+import de.jessestricker.roms.datfile.Datfile
+import de.jessestricker.roms.datfile.Game
+import de.jessestricker.roms.datfile.Header
+import de.jessestricker.roms.datfile.Rom
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import java.io.File
