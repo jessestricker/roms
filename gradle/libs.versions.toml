@@ -2,6 +2,7 @@
 clikt = "4.3.0"
 detekt = "1.23.6"
 jackson = "2.17.0"
+junit = "5.10.2"
 kotest = "5.8.1"
 kotlin = "1.9.23"
 

@@ -24,7 +24,7 @@ dependencies {
 testing {
     suites {
         val test by getting(JvmTestSuite::class) {
-            useKotlinTest(libs.versions.kotlin)
+            useJUnitJupiter(libs.versions.junit)
         }
     }
 }

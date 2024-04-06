@@ -3,8 +3,8 @@ package de.jessestricker.roms
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
+import org.junit.jupiter.api.Test
 import java.io.File
-import kotlin.test.Test
 
 class DatfileTest {
     @Test

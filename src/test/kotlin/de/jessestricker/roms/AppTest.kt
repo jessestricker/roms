@@ -1,12 +1,12 @@
 package de.jessestricker.roms
 
-import kotlin.test.Test
-import kotlin.test.assertNotNull
+import io.kotest.matchers.shouldNotBe
+import org.junit.jupiter.api.Test
 
 class AppTest {
     @Test
     fun appHasAGreeting() {
         val classUnderTest = App()
-        assertNotNull(classUnderTest.greeting, "app should have a greeting")
+        classUnderTest.greeting shouldNotBe null
     }
 }
