@@ -1,6 +1,8 @@
 package de.jessestricker.roms
 
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.equals.shouldBeEqual
+import io.kotest.matchers.shouldBe
 import mockwebserver3.MockResponse
 import mockwebserver3.MockWebServer
 import mockwebserver3.junit5.internal.MockWebServerExtension
@@ -28,8 +30,34 @@ class RedumpDatfileFetcherTest {
         val fetcher = RedumpDatfileFetcher(server.url("/").toUri())
         fetcher.fetch(Console.NINTENDO_WII, datfilePath)
 
+        server.takeRequest().requestUrl shouldBe server.url("/wii")
+
         val datfileBuffer = Buffer()
         FileSystem.SYSTEM.read(datfilePath.toOkioPath()) { readAll(datfileBuffer) }
         datfileBuffer shouldBeEqual expectedDatfileBuffer
+    }
+
+    @Test
+    fun `fetch Nintendo Wii datfile - 404`(@TempDir tempDir: Path, server: MockWebServer) {
+        server.enqueue(MockResponse(code = 404))
+
+        val datfilePath = tempDir / "wii.xml"
+        val fetcher = RedumpDatfileFetcher(server.url("/").toUri())
+        shouldThrow<HttpNotOkStatusException> { fetcher.fetch(Console.NINTENDO_WII, datfilePath) }
+
+        server.takeRequest().requestUrl shouldBe server.url("/wii")
+    }
+
+    @Test
+    fun `fetch Nintendo Wii datfile - empty zip`(@TempDir tempDir: Path, server: MockWebServer) {
+        val emptyZipBuffer = Buffer()
+        FileSystem.SYSTEM.read("src/test/resources/empty.zip".toPath()) { readAll(emptyZipBuffer) }
+        server.enqueue(MockResponse.Builder().body(emptyZipBuffer).build())
+
+        val datfilePath = tempDir / "wii.xml"
+        val fetcher = RedumpDatfileFetcher(server.url("/").toUri())
+        shouldThrow<EmptyZipFileException> { fetcher.fetch(Console.NINTENDO_WII, datfilePath) }
+
+        server.takeRequest().requestUrl shouldBe server.url("/wii")
     }
 }
