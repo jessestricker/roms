@@ -39,6 +39,7 @@ application {
 }
 
 detekt {
+    allRules = false
     basePath = rootProject.projectDir.absolutePath
 }
 tasks.withType<Detekt> {
