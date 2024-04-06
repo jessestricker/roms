@@ -10,4 +10,6 @@ class App : CliktCommand() {
     }
 }
 
-fun main(args: Array<String>) = App().main(args)
+fun main(args: Array<String>) {
+    App().main(args)
+}
