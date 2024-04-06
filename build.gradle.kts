@@ -19,6 +19,7 @@ dependencies {
     implementation(libs.jackson.module.kotlin)
 
     testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.mockwebserver3.junit5)
 }
 
 testing {
