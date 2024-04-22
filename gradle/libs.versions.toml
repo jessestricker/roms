@@ -5,7 +5,7 @@ jackson = "2.17.0"
 junit = "5.10.2"
 kotest = "5.8.1"
 kotlin = "1.9.23"
-okhttp3 = "5.0.0-alpha.12"
+okhttp3 = "5.0.0-alpha.14"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
