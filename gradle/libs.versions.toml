@@ -1,0 +1,7 @@
+[versions]
+java = "24"
+
+[plugins]
+kotlin-jvm = "org.jetbrains.kotlin.jvm:2.3.0"
+
+[libraries]
